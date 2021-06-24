@@ -1,0 +1,6 @@
+(Search or ClickPropositionRecherche)
+=> (FilterClick or FilterSeeLess)
+=> (ShowDescription or ItemTitleClick or productItem or ItemPictureClick)
+=> (CliquerAjouterAuPanier or CliquerAjouterAuPanierPageProduit)
+=> (CliquerVoirMonPanier or cliquerBoutonPanier or CliquerDropDownAjouterAuPanier or CliquerDropDownAjouterAuPanier)
+=> OrderClick

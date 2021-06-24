@@ -32,7 +32,7 @@ export default class ScreenshotRepositoryMongoAndFile implements ScreenshotRepos
 
     public findScreenshot(sessionId: string, explorationNumber: number, interactionIndex: number): Promise<string | undefined> {
         return ScreenshotSchema.findOne({sessionId, explorationNumber, interactionIndex}).exec()
-            .then((screenshotData) => {
+            .then((screenshotData: any) => {
                 if (screenshotData === undefined || screenshotData === null) {
                    return undefined;
                 } else {

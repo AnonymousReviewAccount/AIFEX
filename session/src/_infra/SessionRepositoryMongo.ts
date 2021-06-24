@@ -8,7 +8,7 @@ import Session, { SessionOverlayType } from "../domain/Session";
 import SessionRepository from "../domain/SessionRepository";
 import Tester from "../domain/Tester";
 import WebSiteRepository from "../domain/WebSiteRepository";
-import ExplorationSchema from "./ExplorationSchema";
+import ExplorationSchema, { ExplorationDocument } from "./ExplorationSchema";
 import SessionSchema, { SessionDocument } from "./SessionSchema";
 
 export default class SessionRepositoryMongo implements SessionRepository {
@@ -127,7 +127,7 @@ export default class SessionRepositoryMongo implements SessionRepository {
                     if (webSite !== undefined) {
                         session = new Session(webSite, baseURL, id, name, useTestScenario, createdAt, updatedAt, overlayType);
                         return ExplorationSchema.find({sessionId: session.id})
-                        .then((explorationDataList) => {
+                        .then((explorationDataList: ExplorationDocument[]) => {
                             explorationDataList
                             .sort( (explA, explB) => explA.explorationNumber - explB.explorationNumber)
                             .forEach((explorationData) => {
